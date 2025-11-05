@@ -1,11 +1,11 @@
-import { Button } from '@/components/ui/button';
+import ProductList from '@/components/shared/header/product/product-list';
+
+import sampleData from '@/db/sample-data';
 
 const Homepage = ()=>{
     return(
         <>
-            <h1>Home Page</h1>
-            <p className="text-gray-500 dark:text-gray-400 bg-sky-200">Greetings !</p>
-            <Button>My button</Button>
+            <ProductList data={sampleData.products} title={'Sample Data'}/>
         </>
     )
 };
