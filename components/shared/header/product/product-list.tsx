@@ -1,4 +1,6 @@
-type Product = {
+import ProductCard from '../product/product-card'
+
+export type ProductType = {
     name: string
     slug: string
     category: string
@@ -13,7 +15,7 @@ type Product = {
     banner?: string | null
 }
 
-const ProductList = ({ data, title }: { data: Product[]; title?: string }) => {
+const ProductList = ({ data, title }: { data: ProductType[]; title?: string }) => {
     console.log(data);
     return (
         <>
@@ -24,11 +26,7 @@ const ProductList = ({ data, title }: { data: Product[]; title?: string }) => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                             {data.map((item) => {
                                 return (
-                                    <div
-                                        key={item.slug}
-                                    >
-                                        <p>{item.name}</p>
-                                    </div>
+                                    <ProductCard key={item.slug} product={item}/>
                                 )
                             })}</div>
                     ) : ''
