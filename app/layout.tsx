@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { } from "next/font/google";
 import "./globals.css";
 
+import { ThemeProvider } from '../app/providers';
 
 export const metadata: Metadata = {
     title: "Jarro - NextJS",
@@ -14,9 +15,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body>
-                {children}
+                <ThemeProvider 
+                    attribute='class' 
+                    defaultTheme="light" 
+                    enableSystem disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );
