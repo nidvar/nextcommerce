@@ -16,7 +16,6 @@ export type ProductType = {
 }
 
 const ProductList = ({ data, title }: { data: ProductType[]; title?: string }) => {
-    console.log(data);
     return (
         <>
             <div>
