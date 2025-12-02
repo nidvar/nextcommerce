@@ -1,6 +1,7 @@
 'use server'
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@/lib/generated/prisma";
+// import { convertToPlainObject } from "../constants/utils";
 
 export async function getLatestProducts(){
     const prisma = new PrismaClient();
@@ -9,6 +10,8 @@ export async function getLatestProducts(){
         take: 4,
         orderBy: { createdAt: 'desc' },
     });
+
+    // console.log(convertToPlainObject);
 
     return data;
 };

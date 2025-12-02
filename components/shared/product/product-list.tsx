@@ -1,21 +1,8 @@
 import ProductCard from '../product/product-card'
 
-export type ProductType = {
-    name: string
-    slug: string
-    category: string
-    description: string
-    images: string[]
-    price: number
-    brand: string
-    rating: number
-    numReviews: number
-    stock: number
-    isFeatured: boolean
-    banner?: string | null
-}
+import { Product } from '@/types';
 
-const ProductList = ({ data, title }: { data: ProductType[]; title?: string }) => {
+const ProductList = ({ data, title }: { data: Product[]; title?: string }) => {
     return (
         <>
             <div>
@@ -23,7 +10,7 @@ const ProductList = ({ data, title }: { data: ProductType[]; title?: string }) =
                 {
                     data.length > 0 ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                            {data.map((item) => {
+                            {data.map((item: Product) => {
                                 return (
                                     <ProductCard key={item.slug} product={item}/>
                                 )
